@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tralala board</title>
+        <link rel="stylesheet" href="external/reset.css">
+            <link rel="stylesheet" href="css/utils.css">
+            <link rel="stylesheet" href="css/trello-dashboard.css">
+            <link rel="stylesheet" href="css/trello-board.css">
+            
+        <script src="https://kit.fontawesome.com/34d32cabac.js" crossorigin="anonymous"></script>
+
+        <style>
+           /*done*/
+            span.icon-bar {
+                background-color: rgba(70, 152, 177, 1.0);
+                padding: 10px;
+                width:1300px;
+                font-size-adjust: 20px;
+                position: fixed;
+                height: 26px;
+                cursor: pointer;
+                margin:0px;
+                opacity:0.766;
+                font-size: 18px;
+                
+            } 
+            span.board-title {
+                background-color: whitesmoke;
+                width: 1300px;
+                padding: 10px;
+            }
+            .board {
+                display: grid;
+                grid-template-columns: 9rem 18rem;
+                grid-column-gap: 0.8rem;
+            }
+            a.board-containers {
+                background-color:whitesmoke;
+                padding: 10px;
+                width: 1300px;
+            }
+           /*done*/
+            body{
+                background: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500') ;
+                background-repeat: no-repeat;
+                box-sizing: border-box;
+                background-size: 1300px 700px, cover;
+                background-attachment: fixed;
+            }
+          /*done*/
+            span {
+                padding: 20px;
+                font-family: Comic Sans MS, serif;
+                background-color: rgb(70, 152, 177);
+                color: white;
+            }     
+            a.board-containers {
+                background-color:rgba(245, 245, 245, 0.233);
+                padding: 10px;
+                width: 1300px;
+                text-align:justify ;
+                font-size-adjust: 20px;
+                position: fixed;
+                height: 20px;
+                margin-top: 10px;
+            }
+            .container {
+                display: flex;
+                flex-wrap: nowrap;
+                width: 2000px;
+                margin-top: 8px;
+                margin-left: 10px;
+             }
+            .item {
+                background-color: whitesmoke;
+                width: 50px;
+                flex-basis: 250px;
+                color: grey;
+                margin: 5px;
+            }
+            .icon-bar #b {
+                position: fixed;
+                top: 20px;
+                right: -13px;
+                width: 100px;
+                height: 18px;
+                color: white;
+                justify-self: right ;
+            }
+            input[type="text"] {
+                width: 120px;
+                height: 25px;
+                border: none;
+                font-family: Comic Sans MS, serif;
+            }
+            input:focus {
+                color: white;
+            }               
+            .boards-trello {
+                display: grid;
+                grid-template-rows: max-content auto;
+            }
+            .list-layout {
+                display: grid;
+                grid-gap: 10px;
+                
+            }
+            .board-text {
+                font-weight: bold;
+                font-size: 28px;
+                padding: 5px;
+            }
+            .board-lists {
+                display: grid;
+                grid-auto-columns: 230px;
+                grid-auto-flow: column;
+                grid-gap: 10px;
+                height: 400px;
+                margin-left: 18px;
+                margin-top: 18px;
+                opacity: 0.948;
+            }
+            .board-list {
+                background-color: rgb(235, 236, 240);
+                border-radius: 5px;
+                display: grid;
+                grid-auto-rows: max-content;
+                grid-gap: 10px;
+                height: max-content;
+                padding: 10px;
+            }
+            .list-title {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .card {
+                background-color: white;
+                border-radius: 3px;
+                box-shadow: 0 1px 0 rgba(9,30,66,.25);
+                padding: 10px;
+                cursor:pointer;
+                font-size: 14px;
+                color: rgb(82, 80, 80);
+            }
+            .list-board {
+                font-size: 14px;
+                font-family: sans-serif;
+                color: rgb(82, 80, 80);
+                cursor: pointer;
+            }
+            .card:hover {
+                background-color:rgb(245, 245, 253);
+            }
+            .list-board:hover {
+                color:rgb(198, 198, 199);
+            }
+           
+            #txtbx {
+                text-align:start;
+                font-size:12;
+                font-family:sans-serif;
+                height:70px;
+                width:200px;
+            }
+            .button {
+                background-color: rgb(124, 117, 12);
+                border: none;
+                color: white;
+                padding: 8px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .button:hover {
+              color: rgb(186, 199, 112)
+            }
+            #wrong {
+                font-size: 30px;
+                cursor: pointer;
+                padding-left: 5px ;
+                color: rgb(82, 80, 80);
+                padding-top: 5px;
+            }
+            #wrong:hover {
+                color: rgb(122, 120, 120);
+            }
+            .inpt {
+                background-color:rgb(47, 160, 204);
+                padding-top: 6px;
+                filter: blur(100%);
+                padding-bottom: 0px;
+            }
+            .inpt:focus {
+            background-color: white;
+            outline: none;
+            color: black;
+            }
+            .fas.fa-pencil-alt #card10:hover {
+                color: grey;
+
+            }
+
+        </style>
+    </head>
+                                    
+               
+    <body>
+        <div class="boards-trello">
+        <span class="icon-bar">
+            <a class="active" href="#"><i class="fas fa-home" id="m" style="color:white; background-color:rgb(47, 160, 204);padding: 6px;backdrop-filter: blur(5px);"></i></a>
+            <a href="#"><i class="fas fa-th-list" id="m" id="Board" style="color:white;background-color:rgb(47, 160, 204);padding: 6px ;backdrop-filter: blur(10px); " >Boards</i></a>
+            <a href="#"><input type="text" class="inpt" /></a>
+        
+           
+            <a id="title" style="cursor: auto; padding-left:300px;"  id="m">Tralala</a>
+        
+            <class="icon-bar" id="b" >
+            <a href="#"><i class="fas fa-plus" aria-hidden="true"  id="m" id="add-board" style="color:white;background-color:rgb(47, 160, 204);padding: 6px ;backdrop-filter: blur(5px);"></i></a>
+            <a href="#"> <i class="fas fa-user"  id="m" id="user-profile" style="color:white;background-color:rgb(47, 160, 204);padding: 6px ;backdrop-filter: blur(5px);"></i></a>
+        </span><br/><br/>
+        </div>
+                
+        <div>  
+            <a class="board-containers" id="c" style="color: white;font-family:sans-serif "> Frontend training
+            <i class="fas fa-ellipsis-v"  id="d" style="color:white; margin-left: 1030px"> Show menu</a></i>
+           
+        </div> <br/><br/><br/>
+           
+        
+        <div id='boardlists' class="board-lists" style= "font-family:sans-serif;">
+            
+            <div id='list1' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+                <div class="list-title" style="color: rgb(82, 80, 80); font-family: sans-serif">To Do <i    class="fas fa-ellipsis-h" id="ellipse" style="position: absolute; margin-left: 160px; font-size: 0.63em; " ></i>
+                </div>
+              
+                    <div  id='card10' class="card" draggable="true" ondragstart="dragStart(event)">Learn HTML <i class="fas fa-pencil-alt" ></i>
+                    </div>
+                    <div  id='card10' class="card" draggable="true" ondragstart="dragStart(event)">Learn CSS <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div id='card10' class="card" draggable="true" ondragstart="dragStart(event)">Learn JavaScript <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="list-board"> + Add anoter card</div>
+            </div>
+            <div  id='list2' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+              <div  class="list-title" style="color: rgb(82, 80, 80); font-family: sans-serif">
+             Doing <i  class="fas fa-ellipsis-h" id="ellipse" style="position: absolute; margin-left: 160px; font-size: 0.63em;  "></i>
+            </div>
+             
+              <div  id='card1' class="card" draggable="true" ondragstart="dragStart(event)">
+                Prepare resume
+                 </div>
+                <div><input type ="text" id="txtbx"  placeholder="Enter  a  title  for  this  card ..." style="font-family: Comic Sans MS, serif;color: black;"/>
+              <br>
+             
+              <button class="button">Add Card</button><i class="fas fa-times" id="wrong"></i>
+              </div>
+            </div>
+            
+            <div  id='list3' class="board-list"  ondrop="dropIt(event)" ondragover="allowDrop(event)">
+              <div  class="list-title" style="color: rgb(82, 80, 80); font-family: sans-serif">
+                Testifying/Verifying <i  class="fas fa-ellipsis-h" id="ellipse" style="position: absolute; margin-left: 70px; font-size: 0.63em; " ></i>
+                </div>
+                <div  id='card1' class="card" draggable="true" ondragstart="dragStart(event)">
+                    Twitter app frontend
+                     </div>
+                     <div class="list-board">+Add another card</div>
+                </div>
+
+                <div  id='list4' class="board-list"  ondrop="dropIt(event)" ondragover="allowDrop(event)">
+                    <div  class="list-title" style="color: rgb(82, 80, 80); font-family: sans-serif">
+                      Deploying <i  class="fas fa-ellipsis-h " id="ellipse" style="position: absolute; margin-left: 130px;font-size: 0.63em; " ></i>
+                    </div>
+                    <div  id='card1' class="card" draggable="true" ondragstart="dragStart(event)">
+                        Twitter app backend
+                         </div>
+                         <div class="list-board"> +Add another card</div>
+                           
+                </div>
+
+                <div  id='list5' class="board-list"  ondrop="dropIt(event)" ondragover="allowDrop(event)">
+                        <div  class="list-title" style="color: rgb(82, 80, 80); font-family: sans-serif">
+                         Done <i  class="fas fa-ellipsis-h" id="ellipse" style="position: absolute; margin-left: 160px; font-size: 0.63em; " ></i></div>
+                        <div class="list-board"> +Add card </div>
+                </div>
+                    
+                <div id='list6' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+                     <div class="list-board">+Add another list</div>
+                </div>    
+
+                <div id='list7' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+                       <div> <input type="text" id="txtbx" placeholder="Enter  a  title  for  this  card ..." style="font-family: Comic Sans MS, serif;color: black"/>
+                        
+                        <button class="button">Add List</button><i class="fas fa-times"  id="wrong"></i></div>
+                </div>
+        </div>
+
+        <script src='dragdropswap.js'></script>
+    </body>
+            
+</html>
+
+
+
